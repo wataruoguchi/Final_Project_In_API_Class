@@ -104,6 +104,10 @@
 
             <h2>Live</h2>
             <style>
+            label > img {
+                width: 200px;
+                height: 200px;
+            }
             label > input {
                 visibility: hidden;
                 position: absolute;
@@ -116,105 +120,56 @@
                 cursor: pointer;
                 border: 2px solid #f00;                
             }
+            #result-section {
+                visibility: hidden;
+            }
+            #result-section > .well > div {
+                display: none;
+            }
             </style>
             <div class="row">
                 <div class="col-md-8 col-md-offset-2 well well-lg" id="flickr-section">
                     <div class="well well-lg">
-                        Choose one from those images!
+                        Choose one from these images!
                     </div>
-                    <div class="form-group col-md-6">
-                        <label>
-                            <input type="radio" name="q1" value="1">
-                            <img src="http://placehold.it/350x350" alt="">
-                        </label>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label>
-                            <input type="radio" name="q1" value="2">
-                            <img src="http://placehold.it/350x350" alt="">
-                        </label>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label>
-                            <input type="radio" name="q1" value="3">
-                            <img src="http://placehold.it/350x350" alt="">
-                        </label>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label>
-                            <input type="radio" name="q1" value="4">
-                            <img src="http://placehold.it/350x350" alt="">
-                        </label>
-                    </div>
+                    {#photos}
+                        <div class="form-group col-md-6">
+                            <label>
+                                <input type="radio" name="q1" value="{index}">
+                                <img src="{uri}" alt="">
+                            </label>
+                        </div>
+                    {/photos}
                 </div>
 
-                <div class="col-md-8 col-md-offset-2 well well-lg" id="facebook-section">
+                <div class="col-sm-12 col-md-8 col-md-offset-2 well well-lg" id="facebook-section">
                     <div class="well well-lg">
-                        Choose one from those funs!
+                        Choose one from these funs!
                     </div>
-                    <div class="form-group col-md-6">
-                        <label>
-                            <input type="radio" name="q2" value="1">
-                            <img src="http://placehold.it/350x350" alt="">
-                        </label>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label>
-                            <input type="radio" name="q2" value="2">
-                            <img src="http://placehold.it/350x350" alt="">
-                        </label>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label>
-                            <input type="radio" name="q2" value="3">
-                            <img src="http://placehold.it/350x350" alt="">
-                        </label>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label>
-                            <input type="radio" name="q2" value="4">
-                            <img src="http://placehold.it/350x350" alt="">
-                        </label>
-                    </div>
-                    
+                    {#facebook}
+                        <div class="form-group col-sm-6">
+                            <label>
+                                <input type="radio" name="q2" value="{index}">
+                                <img src="{fb}" alt="">
+                            </label>
+                        </div>
+                    {/facebook}                    
                 </div>
 
-                <div class="col-md-8 col-md-offset-2 well well-lg" id="twitter-section">
+                <div class="col-sm-12 col-md-8 col-md-offset-2 well well-lg" id="twitter-section">
                     <div class="well well-lg">
-                        Choose one from those tweets!
+                        Choose one from these tweets!
                     </div>
-                    <div class="form-group col-md-6">
-                        <label>
-                            <input type="radio" name="q3" value="1">
-                            <div>
-                                text1
-                            </div>
-                        </label>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label>
-                            <input type="radio" name="q3" value="2">
-                            <div>
-                                text2
-                            </div>
-                        </label>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label>
-                            <input type="radio" name="q3" value="3">
-                            <div>
-                                text3
-                            </div>
-                        </label>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label>
-                            <input type="radio" name="q3" value="4">
-                            <div>
-                                text4
-                            </div>
-                        </label>
-                    </div>
+                    {#twt}
+                        <div class="form-group col-sm-6">
+                            <label>
+                                <input type="radio" name="q3" value="{index}">
+                                <div>
+                                    {tweet}
+                                </div>
+                            </label>
+                        </div>
+                    {/twt}
                 </div>
 
                 <div class="col-md-8 col-md-offset-2 text-center" id="result-alt">
@@ -222,19 +177,12 @@
                 </div>
                 <div class="col-md-8 col-md-offset-2" id="result-section">
                     <div class="well well-lg">
-                        <div class="well well-lg" id="result-text-111">
-                            Result text is here!
+                        Today's your lucky photo is here!
+                        {#results}
+                        <div id="result-image-{resCode}">
+                            <img src="{result}" alt="">
                         </div>
-                        <div id="result-image-111">
-                            <img src="http://placehold.it/350x350" alt="">
-                        </div>
-
-                        <div class="well well-lg" id="result-text-112">
-                            Result text is here 112!
-                        </div>
-                        <div id="result-image-112">
-                            <img src="http://placehold.it/350x320" alt="">
-                        </div>
+                        {/results}
                     </div>
                 </div>
 
@@ -249,31 +197,31 @@
     <script>
     var results = {q1: null, q2: null, q3: null},
     showAnswer = function(){
-        //show result section
+        /* show result section */
         $('#result-alt').css('display', 'none');
         $('#result-section').css('visibility', 'visible');
 
-        //generate a code by each answer
+        /* generate a code by each answer */
         /* e.g.
-          Question 1: Answer = '2'
+          Question 1: Answer = '0'
           Question 2: Answer = '1'
-          Question 3: Answer = '4'
-          resultCode = 214
-        */
+          Question 3: Answer = '3'
+          resultCode = 013
+
+          It will match resCode which is generated in index.js */
         var resultCode = $.map(results, function(value) {
             return value;
         }).join("");
 
-        //TODO: Ask Dan, Should I use DOM tree?
-        //reset the result
+        /* TODO: Ask Dan, Should I use DOM tree? */
+        /* reset the result */
         $('#result-section>.well>div').css('display', 'none');
 
-        //show the result based on the code just generated
-        $('#result-text-'+resultCode).css('display', 'block');
+        /* show the result based on the code which is just generated */
         $('#result-image-'+resultCode).css('display', 'block');
     },
     isAllAnswered = function(){
-        //If one of result is 'null', it returns false
+        /* If one of result is 'null', it returns false */
         var isAllAnswered = true;
         $.each(results, function(index, val) {
             if(val == null) {
@@ -283,12 +231,12 @@
         return isAllAnswered;
     },
     setResult = function(section, questionName){
-        // set an answer into results
+        /* set an answer into results */
         results[questionName] = $('input[name="'+questionName+'"]:checked', section).val();
         isAllAnswered()?showAnswer():null;
     };
 
-    //TODO: Ask Dan, Can I improve them?
+    /* TODO: Ask Dan, Can I improve them? */
     $('#flickr-section').on('change', function(){
         setResult(this, 'q1');
     });
@@ -299,19 +247,10 @@
         setResult(this, 'q3');
     });
 
-    //Reset all answers
     jQuery(document).ready(function($) {
+        /* Reset all answers (remove red border lines) */
         $('.form-group').children('label').find("input:radio:checked").prop({checked: false});
     });
     </script>
-
-    <style>
-    #result-section {
-        visibility: hidden;
-    }
-    #result-section > .well > div {
-        display: none;
-    }
-    </style>
 </body>
 </html>

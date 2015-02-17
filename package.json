@@ -1,0 +1,20 @@
+{
+  "name": "FinalProject",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "dust": "^0.3.0",
+    "dustjs-linkedin": "^2.5.1",
+    "hapi": "^8.1.0",
+    "hapi-dust": "^1.0.0",
+    "request": "^2.51.0",
+	"twit": "^1.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified \" && exit 1"
+  },
+  "author": "Wataru",
+  "license": "No License"
+}
