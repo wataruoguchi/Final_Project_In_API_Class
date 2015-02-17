@@ -105,12 +105,12 @@ server.route({
 
 					// TODO: Nested Ansync. I don't like this.
 					//get response by twitter.
-					Twit = require('twit'),
+					var Twit = require('twit'),
 					twitterClient = new Twit(credentials.twitter);
 					twitterClient.get('statuses/user_timeline', { screen_name: 'vanarts', count: 4 },  function (err, data, response) {
 						data.forEach(function(record, idx){
 							tweetTxt = record.text;
-							twitterArray.push({"tweet": tweetTxt, "index": idx});
+							twitterArray.push({"tweet": tweetTxt, "tweetDate": record.created_at, "index": idx});
 						});
 						//Using template
 						reply.view('./tmplProject.html',{"photos": flickrArray, "twt": twitterArray, "facebook": facebookArray, "results": resultArray});
