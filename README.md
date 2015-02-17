@@ -1,5 +1,5 @@
 #Quiz
-Making a simple quiz game inspired by [http://www.buzzfeed.com/quizzes](Buzzfeed).
+Making a simple quiz game inspired by [Buzzfeed](http://www.buzzfeed.com/quizzes).
 
 Implement twitter, flickr and facebook API.
 Those APIs are used in index.js
