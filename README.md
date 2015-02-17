@@ -1,6 +1,23 @@
-#CMS
+#Quiz
+Making a simple quiz game inspired by [http://www.buzzfeed.com/quizzes](Buzzfeed).
 
-## Roadmap
-* Add slippy map to CMS
-    * As a user, I want to see photos hosted by Flickr on a map with the keyword of Vancouver
-	
+Implement twitter, flickr and facebook API.
+Those APIs are used in index.js
+index.js is driven by node.js
+Once APIs get data, it'll be implemented in tmplProject.html
+To user, just access to ./quiz
+
+The page which I made as a mockup is also accessible.
+access to ./project.html
+
+#### Technologies
+* Flickr JS API
+* Facebook Graph API
+* Twitter JS API
+* Twitter API client for node(hapi-twit)
+* JavaScript
+* jQuery
+* node.js
+* hapi.js
+* hapi-dust.js
+
