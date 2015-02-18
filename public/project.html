@@ -222,7 +222,7 @@
                 </div>
                 <div class="col-md-8 col-md-offset-2" id="result-section">
                     <div class="well well-lg">
-                        <div class="well well-lg" id="result-text-111">
+                        <div class="well well-lg hide" id="result-text-111">
                             Result text is here!
                         </div>
                         <div id="result-image-111">
@@ -266,7 +266,7 @@
 
         //TODO: Ask Dan, Should I use DOM tree?
         //reset the result
-        $('#result-section>.well>div').css('display', 'none');
+        $('.hide').css('display', 'none');
 
         //show the result based on the code just generated
         $('#result-text-'+resultCode).css('display', 'block');
@@ -288,7 +288,6 @@
         isAllAnswered()?showAnswer():null;
     };
 
-    //TODO: Ask Dan, Can I improve them?
     $('#flickr-section').on('change', function(){
         setResult(this, 'q1');
     });
